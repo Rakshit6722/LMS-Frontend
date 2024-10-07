@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "serve -s dist",
+
     "build": "npm install && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
