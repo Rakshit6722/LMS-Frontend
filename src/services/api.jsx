@@ -1,5 +1,5 @@
 // const BASE_URL = process.env.REACT_APP_BASE_URL
-const BASE_URL = "https://server-lms-2.onrender.com"
+const BASE_URL = "https://server-lms-2.onrender.com/api/v1"
 
 export const endpoints = {
     SENDOTP_API: BASE_URL + "/auth/sendotp",
