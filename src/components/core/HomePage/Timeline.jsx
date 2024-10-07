@@ -80,7 +80,7 @@ function Timeline() {
                         <div></div>
                     </div>
                     <img
-                        src="https://unsplash.com/photos/software-engineers-people-working-on-project-and-programming-in-company-9yIWxiSswnQ"
+                        src="https://plus.unsplash.com/premium_photo-1661539032823-e60652a0885d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="timelineImage"
                         className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[400px] lg:h-fit"
                     />
