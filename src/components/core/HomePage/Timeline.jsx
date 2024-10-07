@@ -1,5 +1,5 @@
 import React from 'react'
-import TimeLineImage from '../../../assets/Images/TimeLineImage.png'
+// import TimeLineImage from '../../../assets/Images/TimeLineImage.png'
 import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg";
 import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg";
 import Logo3 from "../../../assets/TimeLineLogo/Logo3.svg";
@@ -80,7 +80,7 @@ function Timeline() {
                         <div></div>
                     </div>
                     <img
-                        src={TimeLineImage}
+                        src
                         alt="timelineImage"
                         className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[400px] lg:h-fit"
                     />
