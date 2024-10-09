@@ -22,8 +22,8 @@ function CreateCategory() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900">
-            <div className="bg-richblack-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <div className="min-h-[calc(100vh-3.5rem)] w-full flex items-center justify-center bg-gray-900">
+            <div className="bg-richblack-800 p-6 rounded-lg shadow-lg lg:w-full w-[350px] -translate-y-10">
                 <h2 className="text-2xl font-semibold text-yellow-50 mb-6 text-center">Create Category</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     {/* Category Name */}
@@ -68,6 +68,7 @@ function CreateCategory() {
                     </div>
                 </form>
             </div>
+
         </div>
     )
 }

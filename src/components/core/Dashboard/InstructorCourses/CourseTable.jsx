@@ -152,7 +152,7 @@ export default function CoursesTable({ courses, setCourses }) {
           )}
         </Tbody>
       </Table>
-      {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
+      {confirmationModal && <ConfirmationModel modalData={confirmationModal} />}
     </>
   )
 }

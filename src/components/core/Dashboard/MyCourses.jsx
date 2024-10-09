@@ -9,7 +9,7 @@ import { fetchInstructorCourses } from '../../../services/operations/courseDetai
 function MyCourses() {
 
     const { token } = useSelector(state => state.auth)
-    const navigate = useNavigate
+    const navigate = useNavigate()
     const [courses, setCourses] = useState([])
 
     useEffect(() => {

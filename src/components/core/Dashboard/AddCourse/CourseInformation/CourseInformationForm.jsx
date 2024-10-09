@@ -136,7 +136,7 @@ function CourseInformationForm() {
     }
 
     return (
-        <div>
+        <div className="w-full max-w-[400px] mx-auto p-4 md:p-6">
             {
                 loading ? (<>
                     <div className='spinner'></div>

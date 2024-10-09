@@ -22,7 +22,7 @@ function MyProfile() {
                         alt={`profile-${user?.firstName}`}
                         className='aspect-square w-[78px] rounded-full object-cover'
                     />
-                    <div className='space-y-1'>
+                    <div className='space-y-1 hidden sm:block'>
                         <p className='text-lg font-semibold text-richblack-5'>
                             {user?.firstName + " " + user?.lastName}
                         </p>
@@ -72,14 +72,14 @@ function MyProfile() {
                     </div>
                     <div>
                         <p className="mb-2 text-sm text-richblack-600">Email</p>
-                        <p className="text-sm font-medium text-richblack-5">
+                        <p className="text-[13px] font-medium text-richblack-5">
                             {user?.email}
                         </p>
                     </div>
                     <div>
                         <p className="mb-2 text-sm text-richblack-600">Gender</p>
                         <p className="text-sm font-medium text-richblack-5">
-                            {user?.additionalDetails?.gender ?? "Add Gender"}
+                            {user?.additionalDetails?.gender ?? <span className='text-richblack-400'>Add Gender</span>}
                         </p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ function MyProfile() {
                     <div>
                         <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
                         <p className="text-sm font-medium text-richblack-5">
-                            {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+                            {user?.additionalDetails?.contactNumber ?? <span className='text-richblack-400'>Add Number</span>}
                         </p>
                     </div>
                     <div>

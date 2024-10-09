@@ -5,6 +5,7 @@ import { HiOutlineGlobeAlt } from "react-icons/hi"
 import ReactMarkdown from 'react-markdown';
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
+import toast from "react-hot-toast";
 
 // import ConfirmationModal from "../components/common/ConfirmationModal"
 import ConfirmationModel from "../components/common/ConfirmationModel";

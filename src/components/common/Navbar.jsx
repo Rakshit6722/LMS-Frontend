@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { NavbarLinks } from '../../data/navbar-links'
-import { Link, matchPath, useLocation } from 'react-router-dom'
+import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/Logo/Logo-Full-Light.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import ProfileDrowpdown from '../core/Auth/ProfileDrowpdown'
 import { apiConnector } from '../../services/apiconnector'
@@ -13,6 +13,7 @@ import { CgAdd } from "react-icons/cg";
 import IconBtn from './IconBtn'
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import { logout } from '../../services/operations/authAPI'
 
 // for temporary testing
 
@@ -25,6 +26,9 @@ function Navbar() {
 
     const [subLinks, setSubLinks] = useState([])
     const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
 
     const [open, setOpen] = useState(false)
 
@@ -246,6 +250,15 @@ function Navbar() {
 
                             {/* login/signup/dashboard buttons */}
                             <div className="mt-5">
+                                {user && user?.accountType === "Admin" && (
+                                 
+                                        <Link to={'/createCategory'} onClick={()=>setOpen(false)}>
+                                            <IconBtn text="Category">
+                                                <CgAdd size={20} />
+                                            </IconBtn>
+                                        </Link>
+                               
+                                )}
                                 {token === null && (
                                     <>
                                         <Link to="/login" onClick={() => setOpen(false)}>
@@ -260,7 +273,30 @@ function Navbar() {
                                         </Link>
                                     </>
                                 )}
-                                {token !== null && <ProfileDrowpdown />}
+                                {/* {token !== null && <ProfileDrowpdown />} */}
+
+                                {
+                                    token !== null && (
+                                        <div className='py-2 mt-5'>
+                                            <Link to={"/dashboard/my-profile"} onClick={() => setOpen(false)}>
+                                                <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 w-full mb-2">
+                                                    Dashboard
+                                                </button>
+                                            </Link>
+
+
+                                            <button
+                                                onClick={() => {
+                                                    dispatch(logout(navigate))
+                                                    setOpen(false)
+                                                }}
+                                                className="bg-red-500 rounded-[8px] px-[12px] py-[8px] text-white w-full">
+                                                Logout
+                                            </button>
+                                        </div>
+                                    )
+                                }
+
                             </div>
                         </div>
                     </div>

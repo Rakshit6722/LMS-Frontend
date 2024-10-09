@@ -15,7 +15,7 @@ function Catalog() {
     const { catalogName } = useParams()
     const [active, setActive] = useState(1)
     const [catalogPageData, setCatalogPageData] = useState(null)
-    const [categoryId, setCategoryId] = useState("")
+    const [categoryId, setCategoryId] = useState(null)
 
     useEffect(() => {
         const getCategories = async () => {
@@ -25,7 +25,9 @@ function Catalog() {
             )
             console.log("res1: ",response);
             const category_Id = response?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0]._id
+            console.log(category_Id)
             setCategoryId(category_Id)
+           
         }
         getCategories()
     }, [catalogName])
@@ -33,7 +35,9 @@ function Catalog() {
     useEffect(() => {
         const getCategoryDetails = async () => {
             try {
+                console.log("category_Id: ",categoryId)
                 const res = await getCatalogPageData(categoryId)
+                
                 console.log("res: ", res)
                 setCatalogPageData(res)
             } catch (err) {
