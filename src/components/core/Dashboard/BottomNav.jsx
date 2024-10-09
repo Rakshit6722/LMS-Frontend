@@ -8,29 +8,37 @@ import ConfirmationModel from '../../common/ConfirmationModel'
 import { ACCOUNT_TYPE } from '../../../utils/constants'
 import { FaShoppingCart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 
 function BottomNav() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [confirmationModel, setConfirmationModel] = useState(null)
     const { user } = useSelector(state => state.profile)
+    const [selected, setSelected] = useState(null)
 
 
     return (
-        <div className="fixed bottom-0 left-0 w-full bg-richblack-800 border-t border-richblack-700 flex justify-around items-center py-3">
+        <div className="fixed bottom-0 h-[60px] left-0 w-full bg-richblack-800 border-t border-richblack-700 flex justify-around items-center">
             {
                 (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) && (
                     <>
                         <button
-                            className="flex flex-col items-center text-richblack-300"
-                            onClick={() => navigate('/dashboard/my-courses')}
+                            className={`flex flex-col items-center text-richblack-300 ${selected === 1 ? "text-white" : ""}`}
+                            onClick={() => {
+                                navigate('/dashboard/my-courses')
+                                setSelected(1)
+                            }}
                         >
                             <AiOutlineHome className="text-2xl" />
                             <span className="text-xs">Courses</span>
                         </button>
                         <button
-                            className="flex flex-col items-center text-richblack-300"
-                            onClick={() => navigate('/dashboard/add-course')}
+                            className={`flex flex-col items-center text-richblack-300 ${selected === 2 ? "text-white" : ""}`}
+                            onClick={() => {
+                                navigate('/dashboard/add-course')
+                                setSelected(2)
+                            }}
                         >
                             <VscAdd className="text-2xl" />
                             <span className="text-xs">Add Course</span>
@@ -43,15 +51,21 @@ function BottomNav() {
                 (user && user?.accountType === ACCOUNT_TYPE.STUDENT) && (
                     <>
                         <button
-                            className="flex flex-col items-center text-richblack-300"
-                            onClick={() => navigate('/dashboard/enrolled-courses')}
+                            className={`flex flex-col items-center text-richblack-300 ${selected === 3 ? "text-white" : ""}`}
+                            onClick={() => {
+                                navigate('/dashboard/enrolled-courses')
+                                setSelected(3)
+                            }}
                         >
                             <AiOutlineHome className="text-2xl" />
                             <span className="text-xs">Courses</span>
                         </button>
                         <button
-                            className="flex flex-col items-center text-richblack-300"
-                            onClick={() => navigate("/dashboard/cart")}
+                            className={`flex flex-col items-center text-richblack-300 ${selected === 4 ? "text-white" : ""}`}
+                            onClick={() => {
+                                navigate("/dashboard/cart")
+                                setSelected(4)
+                            }}
                         >
                             <BsCart2 className="text-2xl" />
                             <span className="text-xs">Courses</span>
@@ -61,8 +75,22 @@ function BottomNav() {
             }
 
             <button
-                className="flex flex-col items-center text-richblack-300"
-                onClick={() => navigate('/dashboard/settings')}
+                className={`flex flex-col items-center text-richblack-300 ${selected === 5 ? "text-white" : ""}`}
+                onClick={() => {
+                    navigate('/dashboard/my-profile')
+                    setSelected(5)
+                }}
+            >
+                <CgProfile className="text-2xl" />
+                <span className="text-xs">Profile</span>
+            </button>
+
+            <button
+                className={`flex flex-col items-center text-richblack-300 ${selected === 6 ? "text-white" : ""}`}
+                onClick={() => {
+                    navigate('/dashboard/settings')
+                    setSelected(6)
+                }}
             >
                 <VscSettingsGear className="text-2xl" />
                 <span className="text-xs">Settings</span>
