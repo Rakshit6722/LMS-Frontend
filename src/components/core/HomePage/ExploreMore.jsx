@@ -23,7 +23,7 @@ function ExploreMore() {
     }
     return (
         <div>
-            <div className='text-4xl font-semibold text-center'>
+            <div className='lg:text-4xl text-2xl font-semibold text-center'>
                 Unlock the
                 <HighlightText text={"Power of Code"} />
             </div>
@@ -31,14 +31,14 @@ function ExploreMore() {
                 Learn to build anything you can imagine
             </p>
 
-            <div className='flex flex-row rounded-full bg-richblack-800 mb-5 mt-5 border-richblack-300 px-1 py-1'>
+            <div className='mx-5 lg:mx-0 flex flex-row lg:rounded-full rounded-[15%] bg-richblack-800 mb-5 mt-5 border-richblack-300 px-1 py-1'>
                 {
                     tabsName.map((ele,i)=>{
                         return(
                             <div key={i}
-                             className={`text-[16px]
+                             className={`lg:text-[16px] text-[12px]
                              ${currentTab===ele?"bg-richblack-900 text-richblack-5 font-medium":"text-richblack-200"}
-                             rounded-full duration-200 transition-all cursor-pointer hover:bg-richblue-900 hover:text-richblack-5 px-5 py-3`} 
+                             rounded-[15%] lg:rounded-full duration-200 transition-all cursor-pointer hover:bg-richblue-900 hover:text-richblack-5 px-3 lg:px-5 py-3`} 
                              onClick={()=>setMyCards(ele)}
                              >
                               {ele}  

@@ -7,7 +7,7 @@ import { ImTree } from "react-icons/im";
 const CourseCard = ({ cardData, currentCard, setCurrentCard }) => {
     return (
         <div
-            className={`w-[360px] lg:w-[30%] ${currentCard === cardData?.heading
+            className={`w-[300px] lg:w-[30%] ${currentCard === cardData?.heading
                 ? "bg-white shadow-[12px_12px_0_0] shadow-yellow-50"
                 : "bg-richblack-800"
                 }  text-richblack-25 h-[300px] box-border cursor-pointer`}
